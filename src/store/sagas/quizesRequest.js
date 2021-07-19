@@ -1,13 +1,13 @@
-import animals from "./imagens/animals.jpg";
-import animation from "./imagens/animation.jpg";
-import anime from "./imagens/anime.jpg";
-import computers from "./imagens/computers.jpg";
-import film from "./imagens/film.jpg";
-import games from "./imagens/games.jpeg";
-import mathematic from "./imagens/mathematic.jpg";
-import mythology from "./imagens/mythology.jpg";
-import nature from "./imagens/nature.jpg";
-import sports from "./imagens/sports.jpg";
+import animals from "../../imagens/animals.jpg";
+import animation from "../../imagens/animation.jpg";
+import anime from "../../imagens/anime.jpg";
+import computers from "../../imagens/computers.jpg";
+import film from "../../imagens/film.jpg";
+import games from "../../imagens/games.jpeg";
+import mathematic from "../../imagens/mathematic.jpg";
+import mythology from "../../imagens/mythology.jpg";
+import nature from "../../imagens/nature.jpg";
+import sports from "../../imagens/sports.jpg";
 
 
 const API_BASE = "https://opentdb.com/api.php?"
