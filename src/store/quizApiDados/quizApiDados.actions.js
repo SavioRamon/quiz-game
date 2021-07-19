@@ -1,9 +1,9 @@
 
-export default function recebeDados(valor) {
+export default function recebeDados() {
     return {
         type: "API_DADOS_REQUEST",
         payload: {
-            valor
+            
         }
     }
 }
