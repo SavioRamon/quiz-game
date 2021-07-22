@@ -1,0 +1,35 @@
+
+.quizes-selecao {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.quiz-unidade {
+    margin: 50px;
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px black;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+
+.quiz-unidade:hover {
+    transform: scale(1.1);
+}
+
+.quiz-unidade h1 {
+    width: 100%;
+    background-color: rgba(54, 54, 54, 0.9);
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+}
