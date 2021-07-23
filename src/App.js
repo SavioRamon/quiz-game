@@ -16,10 +16,14 @@ function App() {
 
   	return (
  		<div className="App">
-			 <header className="cabecalho">
-				 <h1 className="cabecalho-titulo">Quiz Game</h1>
+			<header className="cabecalho">
+				<h1 className="cabecalho-titulo">Quiz Game</h1>
 				 
-			 </header>
+			</header>
+
+			<div className="quiz-principal">
+				
+			</div>
 
 			<QuizesArea />
 
