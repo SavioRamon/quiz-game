@@ -28,6 +28,7 @@
 
 .quiz-principal {
     margin-top: 60px;
+    padding: 20px;
     width: 100%;
     height: calc(100vh - 60px);
     background-color: rgb(189, 234, 252);
