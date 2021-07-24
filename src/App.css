@@ -30,4 +30,8 @@
     margin-top: 60px;
     width: 100%;
     height: calc(100vh - 60px);
+    background-color: rgb(189, 234, 252);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

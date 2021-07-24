@@ -1,0 +1,19 @@
+
+.quiz-principal-conteudo {
+    margin: 20px;
+    width: 50%;
+    height: 90%;
+    border-radius: 20px;
+    border: 1px solid #000;
+    
+}
+
+.quiz-principal-imagem {
+    margin: 20px;
+    width: 50%;
+    height: 90%;
+    border-radius: 20px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
