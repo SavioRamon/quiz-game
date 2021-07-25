@@ -7,18 +7,29 @@ function QuizPrincipal(){
 
     const quizInfo = useSelector(state=>state.quizInformacoes);
     console.log(quizInfo);
+    
     return (
-        <React.Fragment>
-            <div className="quiz-principal-conteudo">
 
-            </div>
-
-            <div className="quiz-principal-imagem" style={{backgroundImage: `url(${quizInfo.image})`}}>
+        <div className="quiz-principal-conteudo" style={{backgroundImage: `url(${quizInfo.image})`}}>
+            { quizInfo.estado === "inicial" ?
                 
-            </div>
+                <div className="info-inicial">
+                    <h1>{quizInfo.titulo}</h1>
+                    <p>{quizInfo.texto}</p>
+                </div>
 
-        </React.Fragment>
+                :
+
+                <div className="quiz-iniciado">
+                    
+
+                </div>
+            }
+
+            
+        </div>
     )
 }
 
 export default QuizPrincipal;
+

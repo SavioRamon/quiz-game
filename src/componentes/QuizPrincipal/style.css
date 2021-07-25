@@ -7,3 +7,31 @@
     background-repeat: no-repeat;
     background-position: center;
 }
+
+.info-inicial {
+    padding-left: 5%;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #fff;
+}
+
+.info-inicial h1 {
+    font-size: 30px;
+    line-height: 60px;
+}
+
+.info-inicial p {
+    font-weight: bold;
+}
+
+.quiz-iniciado {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+}
