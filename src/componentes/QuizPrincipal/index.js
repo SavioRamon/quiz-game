@@ -17,7 +17,12 @@ function QuizPrincipal(){
     return (
 
         <div className="quiz-principal-conteudo" style={{backgroundImage: `url(${quizInfo.image})`}}>
+            <div className="efeito-escuro"></div>
             
+            {quizInfo.estado != "inicial" && 
+                <h1 className="quiz-titulo">{quizInfo.title}</h1>
+            }
+
             { quizInfo.estado === "inicial"?
             
                 <div className="info-inicial">
@@ -29,11 +34,11 @@ function QuizPrincipal(){
 
                 quizAcoes.start?
                     <div className="quiz-iniciado">
-                        <h1 className="quiz-titulo">{quizInfo.title}</h1>
+                        
                     </div>
 
                     :
-                    
+
                     <div className="start" onClick={()=>setQuizAcoes({...quizAcoes, start: true})}>
                         <PlayArrowIcon style={{fontSize: "100px"}}/>
                     </div>
