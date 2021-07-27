@@ -6,6 +6,9 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .info-inicial {
@@ -34,4 +37,16 @@
     height: 100%;
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.7);
+}
+
+.start {
+    width: 100px;
+    height: 100px;
+    background: red;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.start:hover {
+    background-color: rgb(170, 0, 0);
 }
