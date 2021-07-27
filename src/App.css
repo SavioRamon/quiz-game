@@ -5,6 +5,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Roboto", sans-serif;
+    z-index: 1;
 }
 
 .cabecalho {
@@ -18,6 +19,7 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 2;
     
 }
 
