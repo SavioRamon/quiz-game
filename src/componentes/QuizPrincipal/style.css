@@ -49,9 +49,11 @@
 }
 
 .quiz-titulo {
+    margin-bottom: 20px;
     color: #fff;
     text-align: center;
     text-shadow: 0px 0px 10px #fff;
+    
 }
 
 .start {
