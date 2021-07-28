@@ -7,12 +7,21 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 function QuizPrincipal(){
 
     const quizInfo = useSelector(state=>state.quizInformacoes);
-    const [quizAcoes, setQuizAcoes] = useState({
-        start: false,
-        restart: false
+    const [infoAdicionais, setInfoAdicionais] = useState({
+        pontuacao: 0,
+        paginaAtual: 0
     })
 
-    useEffect(()=>console.log(quizAcoes), [quizAcoes])
+    const [quizAcoes, setQuizAcoes] = useState({
+        start: false,
+        restart: false,
+        responde(){
+            setInfoAdicionais({
+                ...infoAdicionais, 
+                paginaAtual: infoAdicionais.paginaAtual + 1
+            })
+        }
+    })
 
     return (
 
@@ -34,7 +43,7 @@ function QuizPrincipal(){
 
                 quizAcoes.start?
                     <div className="quiz-iniciado">
-                        
+                        <p className="quiz-pergunta">{quizInfo.item.results[infoAdicionais.paginaAtual].question}</p>
                     </div>
 
                     :
