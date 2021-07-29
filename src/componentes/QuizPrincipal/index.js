@@ -9,8 +9,6 @@ function QuizPrincipal(){
     const quizInfo = useSelector(state=>state.quizInformacoes);
     const [pontuacao, setPontuacao] = useState(0);
     const [paginaAtual, setPaginaAtual] = useState(0);
-    
-    const [respostasPagina, setRespostasPagina] = useState([]);
 
     const [start, setStart] = useState(false);
     const [fimDeJogo, setFimDeJogo] = useState(false);
@@ -23,27 +21,19 @@ function QuizPrincipal(){
 
         if(paginaAtual < quizInfo.item.results.length - 1) {
             setPaginaAtual(paginaAtual + 1);
-            carregaRespostas();
         } else {
             setStart(false);
             setFimDeJogo(true);
         }
     }
 
-    const carregaRespostas = ()=>{
+    const retornaRespostas = ()=>{
+        const totalRespostas = quizInfo.item.results[paginaAtual].incorrect_answers.slice();
+        totalRespostas.push(quizInfo.item.results[paginaAtual].correct_answer);
 
-        if(start){
-            const totalRespostas = quizInfo.item.results[paginaAtual].incorrect_answers.slice();
-            totalRespostas.push(quizInfo.item.results[paginaAtual].correct_answer);
-
-            setRespostasPagina(totalRespostas.sort());
-        }
+        return totalRespostas.sort();
         
     }
-
-    useEffect(()=>{
-        carregaRespostas();
-    }, [start])
 
     return (
 
@@ -68,7 +58,7 @@ function QuizPrincipal(){
                         <p className="quiz-pergunta">{quizInfo.item.results[paginaAtual].question}</p> 
                         <div className="quiz-area-resposta">
                             
-                            {respostasPagina.map((resposta, key)=>{
+                            {retornaRespostas().map((resposta, key)=>{
                                 return <div className="quiz-resposta" key={key} onClick={()=>{
                                     responde(resposta);
                                 }}>{resposta}</div>
