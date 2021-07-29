@@ -13,11 +13,21 @@ function QuizPrincipal(){
     const [respostasPagina, setRespostasPagina] = useState([]);
 
     const [start, setStart] = useState(false);
+    const [fimDeJogo, setFimDeJogo] = useState(false);
 
+    const responde = (resposta)=>{
 
-    const responde = ()=>{
-        setPaginaAtual(paginaAtual + 1);
-        carregaRespostas();
+        if(resposta === quizInfo.item.results[paginaAtual].correct_answer){
+            setPontuacao(pontuacao + 1);
+        }
+
+        if(paginaAtual < quizInfo.item.results.length - 1) {
+            setPaginaAtual(paginaAtual + 1);
+            carregaRespostas();
+        } else {
+            setStart(false);
+            setFimDeJogo(true);
+        }
     }
 
     const carregaRespostas = ()=>{
@@ -57,21 +67,30 @@ function QuizPrincipal(){
                     <div className="quiz-iniciado">
                         <p className="quiz-pergunta">{quizInfo.item.results[paginaAtual].question}</p> 
                         <div className="quiz-area-resposta">
+                            
                             {respostasPagina.map((resposta, key)=>{
-                                console.log(respostasPagina)
                                 return <div className="quiz-resposta" key={key} onClick={()=>{
-                                    responde();
+                                    responde(resposta);
                                 }}>{resposta}</div>
 
                             })}
+
                         </div>
                     </div>
                     
                     :
 
-                    <div className="start" onClick={()=>setStart(true)}>
-                        <PlayArrowIcon style={{fontSize: "100px"}}/>
-                    </div>
+                    !fimDeJogo?
+
+                        <div className="start" onClick={()=>setStart(true)}>
+                            <PlayArrowIcon style={{fontSize: "100px"}}/>
+                        </div>
+                        :
+                        <div className="fim-de-jogo">
+                            <p className="mensagem-fim">Game over</p>
+                            <div className="pontuacao">hits: {pontuacao}</div>
+                            <div className="botao-reinicia">reinicia</div>
+                        </div>
             }
 
 
