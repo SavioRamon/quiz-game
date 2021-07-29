@@ -7,21 +7,33 @@ import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 function QuizPrincipal(){
 
     const quizInfo = useSelector(state=>state.quizInformacoes);
-    const [infoAdicionais, setInfoAdicionais] = useState({
-        pontuacao: 0,
-        paginaAtual: 0
-    })
+    const [pontuacao, setPontuacao] = useState(0);
+    const [paginaAtual, setPaginaAtual] = useState(0);
+    
+    const [respostasPagina, setRespostasPagina] = useState([]);
 
-    const [quizAcoes, setQuizAcoes] = useState({
-        start: false,
-        restart: false,
-        responde(){
-            setInfoAdicionais({
-                ...infoAdicionais, 
-                paginaAtual: infoAdicionais.paginaAtual + 1
-            })
+    const [start, setStart] = useState(false);
+
+
+    const responde = ()=>{
+        setPaginaAtual(paginaAtual + 1);
+        carregaRespostas();
+    }
+
+    const carregaRespostas = ()=>{
+
+        if(start){
+            const totalRespostas = quizInfo.item.results[paginaAtual].incorrect_answers.slice();
+            totalRespostas.push(quizInfo.item.results[paginaAtual].correct_answer);
+
+            setRespostasPagina(totalRespostas.sort());
         }
-    })
+        
+    }
+
+    useEffect(()=>{
+        carregaRespostas();
+    }, [start])
 
     return (
 
@@ -41,14 +53,23 @@ function QuizPrincipal(){
 
                 :
 
-                quizAcoes.start?
+                start?
                     <div className="quiz-iniciado">
-                        <p className="quiz-pergunta">{quizInfo.item.results[infoAdicionais.paginaAtual].question}</p>
-                    </div>
+                        <p className="quiz-pergunta">{quizInfo.item.results[paginaAtual].question}</p> 
+                        <div className="quiz-area-resposta">
+                            {respostasPagina.map((resposta, key)=>{
+                                console.log(respostasPagina)
+                                return <div className="quiz-resposta" key={key} onClick={()=>{
+                                    responde();
+                                }}>{resposta}</div>
 
+                            })}
+                        </div>
+                    </div>
+                    
                     :
 
-                    <div className="start" onClick={()=>setQuizAcoes({...quizAcoes, start: true})}>
+                    <div className="start" onClick={()=>setStart(true)}>
                         <PlayArrowIcon style={{fontSize: "100px"}}/>
                     </div>
             }
