@@ -35,6 +35,17 @@ function QuizPrincipal(){
         
     }
 
+    function limpaDados(){
+        setStart(false);
+        setFimDeJogo(false);
+        setPontuacao(0);
+        setPaginaAtual(0);
+    }
+
+    useEffect(()=>{
+        limpaDados();
+    }, [quizInfo])
+
     return (
 
         <div className="quiz-principal-conteudo" style={{backgroundImage: `url(${quizInfo.image})`}}>
