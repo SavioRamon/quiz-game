@@ -17,18 +17,23 @@ function QuizPrincipal(){
     const responde = (resposta)=>{
 
         if(resposta === quizInfo.item.results[paginaAtual].correct_answer){
+            // Caso o jogador acerte, ganha 1 ponto
             setPontuacao(pontuacao + 1);
         }
 
         if(paginaAtual < quizInfo.item.results.length - 1) {
+            // Caso ainda tenha questões, o quiz irá continuar.
+            // Caso contrário, a tela de fim de jogo aparece
             setPaginaAtual(paginaAtual + 1);
         } else {
+
             setStart(false);
             setFimDeJogo(true);
         }
     }
 
     const retornaRespostas = ()=>{
+        //Essa função irá retornar um array com as respostas da questão
         const totalRespostas = quizInfo.item.results[paginaAtual].incorrect_answers.slice();
         totalRespostas.push(quizInfo.item.results[paginaAtual].correct_answer);
 
@@ -37,6 +42,8 @@ function QuizPrincipal(){
     }
 
     function limpaDados(){
+        // limpa todos os dados para que o quiz seja iniciado ou reiniciado
+
         setStart(false);
         setFimDeJogo(false);
         setPontuacao(0);
@@ -98,10 +105,13 @@ function QuizPrincipal(){
                         :
                         <div className="fim-de-jogo">
                             <p className="mensagem-fim">Game over</p>
+
                             <div className="pontuacao">hits: {pontuacao}</div>
+
                             <div className="botao-reinicia" onClick={()=>limpaDados()}>
                                 restart <RefreshIcon style={{marginBottom: "-10px", fontSize: 40}}/>
-                                </div>
+                            </div>
+
                         </div>
             }
 
