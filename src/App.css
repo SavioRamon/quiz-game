@@ -11,7 +11,7 @@
 .cabecalho {
     height: 60px;
     border-bottom: 2px solid rgb(46, 0, 155);
-    font-size: 15px;
+    font-size: 1rem;
     background-color: rgb(116, 128, 240);
     display: flex;
     align-items: center;
@@ -33,7 +33,7 @@
     padding: 20px;
     width: 100%;
     height: calc(100vh - 60px);
-    min-height: 500px;
+    min-height: 400px;
     background-color: rgb(189, 234, 252);
     display: flex;
     justify-content: center;
