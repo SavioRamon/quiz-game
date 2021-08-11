@@ -3,6 +3,7 @@ import "./style.css";
 
 import { useSelector } from "react-redux";
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
+import RefreshIcon from '@material-ui/icons/Refresh';
 
 function QuizPrincipal(){
 
@@ -43,7 +44,7 @@ function QuizPrincipal(){
     }
 
     useEffect(()=>{
-        limpaDados();
+        limpaDados(); 
     }, [quizInfo])
 
     return (
@@ -90,7 +91,7 @@ function QuizPrincipal(){
                         <div className="fim-de-jogo">
                             <p className="mensagem-fim">Game over</p>
                             <div className="pontuacao">hits: {pontuacao}</div>
-                            <div className="botao-reinicia">reinicia</div>
+                            <div className="botao-reinicia">restart <RefreshIcon style={{marginBottom: "-10px", fontSize: 40}}/></div>
                         </div>
             }
 
