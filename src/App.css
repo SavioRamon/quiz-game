@@ -33,8 +33,15 @@
     padding: 20px;
     width: 100%;
     height: calc(100vh - 60px);
+    min-height: 500px;
     background-color: rgb(189, 234, 252);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media(max-width: 700px) {
+    .quiz-principal {
+        padding: 2px;
+    }
 }

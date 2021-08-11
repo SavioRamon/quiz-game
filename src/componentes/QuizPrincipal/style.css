@@ -43,7 +43,7 @@
 
 .info-inicial h1 {
     font-size: 30px;
-    line-height: 60px;
+    margin-bottom: 30px;
 }
 
 .info-inicial p {
@@ -122,4 +122,10 @@
     transform: scale(1.1);
     color: blue;
     text-shadow: 0px 0px 10px blue;
+}
+
+@media(max-width: 900px) {
+    .quiz-principal-conteudo {
+        width: 100%;
+    }
 }

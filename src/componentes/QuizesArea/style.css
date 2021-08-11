@@ -9,9 +9,10 @@
 }
 
 .quiz-unidade {
-    margin: 50px;
-    width: 200px;
-    height: 200px;
+    margin: 20px;
+    width: 150px;
+    height: 150px;
+    min-width: 150px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
