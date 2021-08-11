@@ -8,6 +8,11 @@ function QuizesArea(){
 
     const quizesApi = useSelector(state=>state.reducerApi);
     const dispatch = useDispatch();
+
+    function topoDaPagina(){
+        window.scroll(0, 0);
+    }
+
     return (
         <div className="quizes-selecao">
             {Array.isArray(quizesApi) &&
@@ -18,6 +23,7 @@ function QuizesArea(){
                           key={key}
                           onClick={()=>{
                             dispatch(informacoes(quiz))
+                            topoDaPagina();
                           }}
                         >
                             
