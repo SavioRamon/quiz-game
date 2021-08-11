@@ -43,6 +43,14 @@ function QuizPrincipal(){
         setPaginaAtual(0);
     }
 
+    function decodificarHTML(html) {
+        //Essa função irá decodificar os caracteres especiais e retornar uma textarea
+
+        const texto = document.createElement("textarea");
+        texto.innerHTML = html;
+        return texto.value;
+    }
+
     useEffect(()=>{
         limpaDados(); 
     }, [quizInfo])
@@ -67,13 +75,13 @@ function QuizPrincipal(){
 
                 start?
                     <div className="quiz-iniciado">
-                        <p className="quiz-pergunta">{quizInfo.item.results[paginaAtual].question}</p> 
+                        <p className="quiz-pergunta">{decodificarHTML(quizInfo.item.results[paginaAtual].question)}</p> 
                         <div className="quiz-area-resposta">
                             
                             {retornaRespostas().map((resposta, key)=>{
                                 return <div className="quiz-resposta" key={key} onClick={()=>{
                                     responde(resposta);
-                                }}>{resposta}</div>
+                                }}>{decodificarHTML(resposta)}</div>
 
                             })}
 
@@ -91,7 +99,9 @@ function QuizPrincipal(){
                         <div className="fim-de-jogo">
                             <p className="mensagem-fim">Game over</p>
                             <div className="pontuacao">hits: {pontuacao}</div>
-                            <div className="botao-reinicia">restart <RefreshIcon style={{marginBottom: "-10px", fontSize: 40}}/></div>
+                            <div className="botao-reinicia" onClick={()=>limpaDados()}>
+                                restart <RefreshIcon style={{marginBottom: "-10px", fontSize: 40}}/>
+                                </div>
                         </div>
             }
 
